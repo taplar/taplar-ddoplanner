@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Taplar - DDO Planner</title>
+		
+		<link rel="stylesheet" href="./public/styles/vendor/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="./public/styles/all.css">
+	</head>
+	
+	<body>
+		<div id="core-header">
+			<a href="//www.taplar.com" class="core-link" id="core-home-link">
+				<i class="fa fa-home" title="Home"></i>
+			</a>
+
+			<div id="core-title">DDO Planner</div>
+
+			<label for="core-main-menu" id="core-main-menu-link" class="core-hide">
+				<input type="radio" name="core-single-menu-state" class="core-element-state core-menu-state" id="core-no-menu" checked="checked">
+				<i class="core-main-menu-icon fa fa-bars" title="Main Menu"></i>
+			</label>
+		</div>
+
+		<div id="core-content">
+			<input type="checkbox" class="core-element-state" id="copyright-notice-state" checked="checked">
+
+			<div class="copyright-notice core-element">
+				<p><em>DDO Planner</em> is a fan site for the <a href="//www.ddo.com/" target="_new">MMORPG Dungeons &amp; Dragons Online</a>.</p>
+
+				<p><em>DDO Planner</em> claims no copyright with regard to the information provided within, nor any affiliation with any company holding a copyright of or related to the information provided within.  The accuracy and completeness of the information provided within is not guaranteed and by interacting with <em>DDO Planner</em> the user agrees that <em>DDO Planner</em> is not responsible for any negative outcome that may result from using the information provided.</p>
+
+				<p>The planner is currently in heavy alpha stage.  It will be a while before it actually does anything.</p>
+
+				<label for="copyright-notice-state" class="close-copyright-notice">Continue</label>
+			</div>
+		</div>
+
+		<input type="checkbox" class="core-element-state" id="core-spinner-state">
+
+		<label class="core-overlay core-element">
+			<div id="core-spinner">
+				<i class="fa fa-spinner fa-pulse"></i>
+			</div>
+		</label>
+
+		<script type="text/x-handlebars-template" class="template" id="character-build-template">
+			<span class="build-container">
+				<input type="radio" name="character-build-state" class="core-element-state character-build-state">
+
+				<div class="core-element character-build">
+					<ul class="character-build-menu">
+						{{#menuOptions}}
+							<input type="radio" name="character-build-menu-step-state" class="core-element-state character-build-menu-step-state" id="menu-option-{{step}}" disabled="disabled">
+
+							<li class="menu-option">
+								<label for="menu-option-{{step}}"><i class="fa fa-lock step-icon locked"></i>{{description}}</label>
+							</li>
+						{{/menuOptions}}
+					</ul>
+				</div>
+			</span>
+		</script>
+
+		<script src="./public/scripts/src/all.js"></script>
+	</body>
+</html>

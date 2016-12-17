@@ -1,0 +1,60 @@
+var Templates = ( ( $, window, document, Handlebars, undefined ) => {
+	let instance;
+
+	function buildApi () {
+		let variables = {
+			templates: {}
+		};
+
+		let functions = {
+			compileTemplates () {
+				let scripts = document.getElementsByTagName( 'script' );
+
+				$( scripts ).detach().filter( '.template' ).get().forEach( ( script ) => {
+					variables.templates[ script.id ] = Handlebars.compile( script.innerHTML )
+				} );
+
+				return instance;
+			}
+		};
+
+		let api = {
+			privateFunctions: functions
+			, buildTemplate ( templateId, data ) {
+				if ( variables.templates[ templateId ] ) return  variables.templates[ templateId ]( data );
+
+				return '';
+			}
+			, initialize () {
+				let initializationMethods = [
+					'compileTemplates'
+				];
+
+				initializationMethods.forEach( ( method ) => {
+					functions[ method ]();
+					delete functions[ method ];
+				} );
+
+				delete api.initialize;
+			}
+		};
+
+		return api;
+	}
+
+	return {
+		getInstance () {
+			if ( !instance ) {
+				instance = buildApi();
+
+				delete instance.privateFunctions;
+				delete instance.privateVariables;
+			}
+
+			return instance;
+		}
+		, getTestInstance: buildApi
+	};
+} )( jQuery, window, document, Handlebars );
+
+Templates.getInstance().initialize();
