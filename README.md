@@ -1,2 +1,2 @@
 # taplar-ddoplanner
-Source files for ddoplanner.taplar.com
+Source files for https://taplar.github.io/ddoplanner
