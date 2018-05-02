@@ -44,12 +44,7 @@ module.exports = {
 		} ),
 		new cleanPlugin( [ 'dist' ] ),
 		new htmlPlugin( {
-			appMountId: 'application',
-			filename: 'index.html',
-			inject: false,
-			lang: 'en-US',
-			mobile: true,
-			template: require( 'html-webpack-template' ),
+			template: './src/index.html',
 			title: 'Taplar - DDO Planner'
 		} ),
 		new copyPlugin( [ { from: './src/assets/jsons/' } ] ),
