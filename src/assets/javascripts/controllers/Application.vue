@@ -8,6 +8,9 @@
 		<main-menu></main-menu>
 		<sub-menu v-for="(submenu, index) in submenus" :key="index" :submenu="submenu"></sub-menu>
 -->
+<!--
+	@import url( '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+-->
 	</div>
 </template>
 
@@ -28,7 +31,6 @@
 </script>
 
 <style>
-	@import url( '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	@import url( '//fonts.googleapis.com/css?family=Open+Sans' );
 </style>
 
