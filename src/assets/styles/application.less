@@ -1,7 +1,15 @@
 //COLORS
+@color-blue-0: rgb(84, 84, 169);
+@color-blue-1: lighten(@color-blue-0, 4%);
 @color-dark-gray-0: rgb(40, 40, 40);
+@color-dark-gray-1: lighten(@color-dark-gray-0, 4%);
+@color-dark-gray-2: lighten(@color-dark-gray-0, 8%);
+@color-dark-gray-3: lighten(@color-dark-gray-0, 12%);
+@color-gray-0: rgb(128, 128, 128);
+@color-gray-1: lighten(@color-gray-0, 4%);
 @color-light-black: rgb(16, 16, 16);
 @color-white: rgb(224, 224, 224);
+@color-yellow: rgb(160, 160, 0);
 
 //FONT SIZES
 @base-font-size: 12px;
@@ -9,11 +17,14 @@
 //Z-INDEXES
 @z-index-application: 0;
 @z-index-application-header: 100;
+@z-index-disclaimer: 100;
 
 // ============================================================================
 
 body {
 	background-color: @color-light-black;
+	font-family: 'Open Sans', sans-serif;
+	font-size: @base-font-size;
 }
 
 .application {
@@ -30,10 +41,64 @@ body {
 		color: @color-white;
 	}
 
+	.content {
+		min-width: 100%;
+		position: absolute;
+		top: @base-font-size * 3.5;
+
+		.disclaimer {
+			background-color: @color-dark-gray-1;
+			border: 2px solid @color-dark-gray-2;
+			border-radius: 4px;
+			color: @color-gray-1;
+			font-size: @base-font-size * 1.5;
+			margin: 2px;
+			padding: 4px;
+			position: absolute;
+			top: 0;
+			z-index: @z-index-disclaimer;
+
+			em {
+				color: @color-yellow;
+			}
+
+			p:first-of-type {
+				margin-top: 0;
+			}
+
+			.close-container {
+				text-align: center;
+
+				.close {
+					background-color: @color-dark-gray-2;
+					border: 1px solid @color-light-black;
+					border-radius: 4px;
+					display: inline-block;
+					font-size: @base-font-size * 2;
+					line-height: @base-font-size * 3.5;
+					min-width: 240px;
+					text-decoration: none;
+
+					&:active, &:hover {
+						background-color: @color-dark-gray-3;
+					}
+				}
+			}
+
+			.external-link {
+				color: @color-blue-0;
+				text-decoration: none;
+
+				&:active, &:hover {
+					color: @color-blue-1;
+				}
+			}
+		}
+	}
+
 	.header {
 		background-color: @color-dark-gray-0;
 		color: @color-white;
-		font-family: 'Open Sans', sans-serif;
 		left: 0;
 		line-height: @base-font-size * 3.5;
 		max-width: 100%;

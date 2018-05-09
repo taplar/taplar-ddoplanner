@@ -1,6 +1,7 @@
 <template>
 	<div class="application">
 		<application-header></application-header>
+		<application-content></application-content>
 <!--
 		<application-header></application-header>
 		<application-body></application-body>
@@ -16,10 +17,12 @@
 
 <script>
 	import ApplicationHeader from '../components/ApplicationHeader.vue';
+	import ApplicationContent from '../components/ApplicationContent.vue';
 
 	export default {
 		components: {
 			ApplicationHeader
+			, ApplicationContent
 		}
 		, data: function () {
 			return {
