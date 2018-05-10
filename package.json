@@ -1,6 +1,7 @@
 {
 	"author": "github.com/taplar",
 	"dependencies": {
+		"deep-extend": "0.5.x",
 		"babel-loader": "7.1.x",
 		"babel-preset-env": "1.6.x",
 		"clean-webpack-plugin": "0.1.x",
@@ -19,7 +20,7 @@
 		"vue-resource": "1.5.x",
 		"vue-template-compiler": "2.5.x",
 		"vuex": "3.0.x",
-		"webpack": "4.7.x",
+		"webpack": "4.8.x",
 		"webpack-cli": "2.1.x",
 		"workbox-webpack-plugin": "3.2.x"
 	},
