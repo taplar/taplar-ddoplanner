@@ -42,7 +42,7 @@ module.exports = {
 			template: './src/index.html',
 			title: 'Taplar - DDO Planner'
 		} ),
-		new copyPlugin( [ { from: './src/assets/jsons/' } ] ),
+		new copyPlugin( [ { from: './src/assets/jsons/' }, { from: './src/assets/images/icons/' } ] ),
 		new workboxPlugin.InjectManifest( {
 			swSrc: './src/sw.js',
 			swDest: 'sw.js'
