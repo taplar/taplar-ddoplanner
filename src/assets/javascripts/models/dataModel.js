@@ -5,12 +5,17 @@ Vue.use( Vuex );
 
 export const dataModel = new Vuex.Store( {
 	state: {
+		theDisclaimerShouldBeShown: !localStorage.getItem( 'closeDisclaimer' )
 	}
 	, getters: {
-		disclaimerShouldBeShown: function () {
-			return !localStorage.getItem( 'closeDisclaimer' );
+		theDisclaimerShouldBeShown: function ( state ) {
+			return state.theDisclaimerShouldBeShown;
 		}
 	}
 	, mutations: {
+		closeTheDisclaimer: function ( state ) {
+			state.theDisclaimerShouldBeShown = false;
+			localStorage.setItem( 'closeDisclaimer', 'true' );
+		}
 	}
 } );

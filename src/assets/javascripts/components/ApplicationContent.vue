@@ -1,6 +1,6 @@
 <template>
 	<div class="content">
-		<disclaimer v-show="disclaimerShouldBeShown"></disclaimer>
+		<disclaimer v-if="theDisclaimerShouldBeShown"></disclaimer>
 	</div>
 </template>
 
@@ -12,11 +12,9 @@
 			Disclaimer
 		}
 		, computed: {
-			disclaimerShouldBeShown: function () {
-				return this.$store.getters.disclaimerShouldBeShown;
+			theDisclaimerShouldBeShown: function () {
+				return this.$store.getters.theDisclaimerShouldBeShown;
 			}
-		}
-		, methods: {
 		}
 	}
 </script>

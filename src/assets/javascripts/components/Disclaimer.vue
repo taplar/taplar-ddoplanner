@@ -9,7 +9,7 @@
 		</p>
 
 		<div class="close-container">
-			<a href="#" class="close">Continue</a>
+			<label class="close" @click="closeTheDisclaimer">Continue</label>
 		</div>
 	</div>
 </template>
@@ -17,6 +17,9 @@
 <script>
 	export default {
 		methods: {
+			closeTheDisclaimer: function () {
+				this.$store.commit( 'closeTheDisclaimer' );
+			}
 		}
 	}
 </script>
