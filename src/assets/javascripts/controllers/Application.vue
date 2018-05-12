@@ -33,10 +33,6 @@
 	}
 </script>
 
-<style>
-	@import url( '//fonts.googleapis.com/css?family=Open+Sans' );
-</style>
-
 <style lang="less">
 	@import '../../styles/application.less';
 </style>
