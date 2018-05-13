@@ -4,9 +4,11 @@
 @color-dark-gray-2: lighten(@color-dark-gray-0, 8%);
 @color-dark-gray-3: lighten(@color-dark-gray-0, 12%);
 @color-gray-0: rgb(192, 192, 192);
+@color-green-0: rgb(0, 192, 0);
 @color-light-black: rgb(16, 16, 16);
 @color-light-blue-1: rgb(135, 206, 235);
 @color-light-blue-2: lighten(@color-light-blue-1, 4%);
+@color-red-0: rgb(192, 0, 0);
 @color-white: rgb(224, 224, 224);
 @color-yellow: rgb(160, 160, 0);
 
@@ -107,6 +109,31 @@ body {
 		position: fixed;
 		top: 0;
 		z-index: @z-index-application-header;
+
+		.build-steps {
+			background-color: @color-dark-gray-2;
+			font-size: @base-font-size * 1.25;
+			line-height: @base-font-size * 3;
+			list-style-type: none;
+			margin: 0;
+			overflow-x: auto;
+			padding: 0;
+			white-space: nowrap;
+
+			.step {
+				border-right: 2px solid @color-dark-gray-1;
+				display: inline-block;
+				padding: 0 12px 0 8px;
+
+				.build-step-locked {
+					color: @color-red-0;
+				}
+
+				.build-step-unlocked {
+					color: @color-green-0;
+				}
+			}
+		}
 
 		.title {
 			font-size: @base-font-size * 2;
