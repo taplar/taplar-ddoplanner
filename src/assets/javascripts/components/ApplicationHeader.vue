@@ -1,8 +1,8 @@
 <template>
-	<header class="header">
-		<h3 class="title">DDO Planner</h3>
+	<div class="fixed-top-left row z-index-100 header">
+		<h3 class="center col-xs-12 font-size-5 no-margin title">DDO Planner</h3>
 		<build-steps v-if="theBuildStepsShouldBeShown"></build-steps>
-	</header>
+	</div>
 </template>
 
 <script>

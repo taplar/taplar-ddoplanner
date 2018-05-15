@@ -1,5 +1,5 @@
 <template>
-	<div class="content">
+	<div class="row content">
 		<disclaimer v-if="theDisclaimerShouldBeShown"></disclaimer>
 	</div>
 </template>
