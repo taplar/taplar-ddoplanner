@@ -1,6 +1,6 @@
 <template>
-	<div class="row content">
-		<disclaimer v-if="theDisclaimerShouldBeShown"></disclaimer>
+	<div class="content row z-index-100">
+		<disclaimer></disclaimer>
 	</div>
 </template>
 
@@ -10,11 +10,6 @@
 	export default {
 		components: {
 			Disclaimer
-		}
-		, computed: {
-			theDisclaimerShouldBeShown: function () {
-				return this.$store.getters.theDisclaimerShouldBeShown;
-			}
 		}
 	}
 </script>

@@ -1,7 +1,7 @@
 <template>
-	<div class="fixed-top-left row z-index-100 header">
-		<h3 class="center col-xs-12 font-size-5 no-margin title">DDO Planner</h3>
-		<build-steps v-if="theBuildStepsShouldBeShown"></build-steps>
+	<div class="header fixed-top-left row z-index-200">
+		<h3 class="title center col-xs-12 font-size-5 no-margin">DDO Planner</h3>
+		<build-steps></build-steps>
 	</div>
 </template>
 
@@ -11,11 +11,6 @@
 	export default {
 		components: {
 			BuildSteps
-		}
-		, computed: {
-			theBuildStepsShouldBeShown: function () {
-				return !this.$store.getters.theDisclaimerShouldBeShown;
-			}
 		}
 	}
 </script>

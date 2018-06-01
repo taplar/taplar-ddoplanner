@@ -13,7 +13,8 @@ export const dataModel = new Vuex.Store( {
 			, spellsStepLocked: true
 			, summaryStepLocked: true
 		}
-		, theDisclaimerShouldBeShown: !localStorage.getItem( 'closeDisclaimer' )
+		, theBuildStepsShouldBeShown: false
+		, theDisclaimerShouldBeShown: !localStorage.getItem( 'hideTheDisclaimer' )
 	}
 	, getters: {
 		abilitiesStepLocked: function ( state ) {
@@ -34,14 +35,23 @@ export const dataModel = new Vuex.Store( {
 		, summaryStepLocked: function ( state ) {
 			return state.buildSteps.summaryStepLocked;
 		}
+		, theBuildStepsShouldBeShown: function ( state ) {
+			return state.theBuildStepsShouldBeShown;
+		}
 		, theDisclaimerShouldBeShown: function ( state ) {
 			return state.theDisclaimerShouldBeShown;
 		}
 	}
 	, mutations: {
-		closeTheDisclaimer: function ( state ) {
+		hideTheDisclaimer: function ( state ) {
 			state.theDisclaimerShouldBeShown = false;
-			localStorage.setItem( 'closeDisclaimer', 'true' );
+			localStorage.setItem( 'hideTheDisclaimer', 'true' );
+		}
+		, hideTheBuildSteps: function ( state ) {
+			state.theBuildStepsShouldBeShown = false;
+		}
+		, showTheBuildSteps: function ( state ) {
+			state.theBuildStepsShouldBeShown = true;
 		}
 	}
 } );
