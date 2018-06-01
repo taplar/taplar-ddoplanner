@@ -1,12 +1,14 @@
 <template>
-	<menu class="build-steps font-size-2 no-margin no-padding no-wrap row">
-		<li class="step"><i class="fa" :class="classesIcon"></i> Classes</li>
-		<li class="step"><i class="fa" :class="abilitiesIcon"></i> Abilities</li>
-		<li class="step"><i class="fa" :class="enhancementsIcon"></i> Enhancements</li>
-		<li class="step"><i class="fa" :class="featsIcon"></i> Feats</li>
-		<li class="step"><i class="fa" :class="spellsIcon"></i> Spells</li>
-		<li class="step"><i class="fa" :class="summaryIcon"></i> Summary</li>
-	</menu>
+	<div class="col-xs-12 no-wrap">
+		<menu class="build-steps font-size-2 no-margin no-padding">
+			<li class="step"><i class="fa" :class="classesIcon"></i> Classes</li>
+			<li class="step"><i class="fa" :class="abilitiesIcon"></i> Abilities</li>
+			<li class="step"><i class="fa" :class="enhancementsIcon"></i> Enhancements</li>
+			<li class="step"><i class="fa" :class="featsIcon"></i> Feats</li>
+			<li class="step"><i class="fa" :class="spellsIcon"></i> Spells</li>
+			<li class="step"><i class="fa" :class="summaryIcon"></i> Summary</li>
+		</menu>
+	</div>
 </template>
 
 <script>

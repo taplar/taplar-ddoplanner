@@ -1,5 +1,5 @@
 <template>
-	<div class="content row z-index-100">
+	<div class="content row position-absolute z-index-100">
 		<disclaimer></disclaimer>
 	</div>
 </template>
