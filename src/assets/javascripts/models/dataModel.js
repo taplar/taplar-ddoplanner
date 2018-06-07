@@ -13,7 +13,7 @@ export const dataModel = new Vuex.Store( {
 			, spellsStepLocked: true
 			, summaryStepLocked: true
 		}
-		, theBuildStepsShouldBeShown: !!localStorage.getItem( 'hideTheDisclaimer' )
+		, theBuildStepsShouldBeShown: false
 		, theDisclaimerShouldBeShown: !localStorage.getItem( 'hideTheDisclaimer' )
 	}
 	, getters: {

@@ -26,6 +26,11 @@
 				}
 			}
 		}
+		, created: function () {
+			if ( !this.$store.getters.theDisclaimerShouldBeShown ) {
+				this.$store.commit( 'showTheBuildSteps' );
+			}
+		}
 	}
 </script>
 
