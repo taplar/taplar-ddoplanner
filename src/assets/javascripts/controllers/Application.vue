@@ -35,7 +35,8 @@
 </script>
 
 <style>
-	@import '../../styles/bootstrap.css';
+	@import '../../styles/vendor/bootstrap/bootstrap.css';
+	@import '../../styles/vendor/font-awesome/4.7.0/css/font-awesome.min.css';
 </style>
 
 <style lang="less">
