@@ -6,8 +6,8 @@
 </template>
 
 <script>
-	import BuildContainer from '../components/BuildContainer.vue';
-	import Disclaimer from '../components/Disclaimer.vue';
+	import BuildContainer from './builds/BuildContainer.vue';
+	import Disclaimer from './Disclaimer.vue';
 
 	export default {
 		components: {

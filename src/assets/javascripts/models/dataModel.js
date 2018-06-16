@@ -5,7 +5,9 @@ Vue.use( Vuex );
 
 export const dataModel = new Vuex.Store( {
 	state: {
-		buildSteps: {
+		activeBuild: undefined
+		, builds: {}
+		, buildSteps: {
 			abilitiesStepLocked: true
 			, classesStepLocked: true
 			, enhancementsStepLocked: true
@@ -19,6 +21,12 @@ export const dataModel = new Vuex.Store( {
 	, getters: {
 		abilitiesStepLocked: function ( state ) {
 			return state.buildSteps.abilitiesStepLocked;
+		}
+		, activeBuild: function ( state ) {
+			return state.activeBuild;
+		}
+		, builds: function ( state ) {
+			return state.builds;
 		}
 		, classesStepLocked: function ( state ) {
 			return state.buildSteps.classesStepLocked;
@@ -50,8 +58,18 @@ export const dataModel = new Vuex.Store( {
 		, hideTheBuildSteps: function ( state ) {
 			state.theBuildStepsShouldBeShown = false;
 		}
+		, selectBuild: function ( state, buildId ) {
+			state.activeBuild = ( state.builds || {} )[ buildId ];
+		}
 		, showTheBuildSteps: function ( state ) {
 			state.theBuildStepsShouldBeShown = true;
+		}
+		, updateTheBuilds: function ( state, builds ) {
+			state.builds = ( builds || [] ).reduce( function ( buildsById, build ) {
+				buildsById[ build.id ] = build;
+
+				return buildsById;
+			}, {} );
 		}
 	}
 } );

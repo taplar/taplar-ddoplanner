@@ -1,3 +1,11 @@
+Array.prototype.map = Array.prototype.map || function ( callback, result ) {
+	this.forEach( function ( element ) {
+		callback( result, element );
+	} );
+
+	return result;
+};
+
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import Application from './assets/javascripts/controllers/Application.vue';

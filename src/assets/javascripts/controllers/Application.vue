@@ -72,6 +72,10 @@
 		}
 
 		&:not(.showTheBuildSteps) {
+			.build-container {
+				display: none;
+			}
+
 			.header {
 				.build-steps { display: none; }
 			}

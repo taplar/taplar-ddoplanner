@@ -8,7 +8,7 @@
 </template>
 
 <script>
-	import BuildSteps from '../components/BuildSteps.vue';
+	import BuildSteps from './BuildSteps.vue';
 
 	export default {
 		components: {
