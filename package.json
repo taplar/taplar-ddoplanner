@@ -11,7 +11,7 @@
 		"html-webpack-template": "6.2.x",
 		"less": "3.0.x",
 		"less-loader": "4.1.x",
-		"serve": "^6.5.8",
+		"serve": "^9.0.0",
 		"style-loader": "0.21.x",
 		"url-loader": "1.0.x",
 		"vue": "2.5.x",
