@@ -1,11 +1,3 @@
-Array.prototype.map = Array.prototype.map || function ( callback, result ) {
-	this.forEach( function ( element ) {
-		callback( result, element );
-	} );
-
-	return result;
-};
-
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import Application from './assets/javascripts/controllers/Application.vue';
@@ -15,26 +7,41 @@ Vue.use( VueResource );
 
 if ( 'serviceWorker' in navigator ) {
 	window.onload = function () {
-		navigator.serviceWorker.register( './sw.js' ).then( function ( registration ) {
-			setTimeout( function () {
-				var httpRequest = ( XMLHttpRequest ) ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+		function ajax ( type, url ) {
+			return new Promise( function ( resolve, reject ) {
+				var xhr = new XMLHttpRequest();
 
-				httpRequest.onreadystatechange = function () {
-					if ( httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200 ) {
-						new Vue( {
-							el: document.getElementById( 'application' )
-							, components: { Application }
-							, render: function ( h ) {
-								return h( 'application' );
-							}
-							, store: dataModel
-						} );
+				xhr.onreadystatechange = function () {
+					if ( xhr.readyState === XMLHttpRequest.DONE ) {
+						if ( xhr.status >= 200 && xhr.status <= 299 ) {
+							resolve();
+						} else {
+							reject();
+						}
 					}
 				};
 	
-				httpRequest.open( 'GET', 'api/initialize', true );
-				httpRequest.send();
-			}, 500 );
+				xhr.open( type, url, true );
+				xhr.send();
+			} );
+		}
+
+		navigator.serviceWorker.register( './sw.js' ).then( function serviceWorkerInitialized () {
+			ajax( 'GET', 'api/initialize' ).then(
+				function () {
+					new Vue( {
+						el: document.getElementById( 'application' )
+						, components: { Application }
+						, render: function ( h ) {
+							return h( 'application' );
+						}
+						, store: dataModel
+					} );
+				}
+				, function () {
+					setTimeout( serviceWorkerInitialized, 100 );
+				}
+			);
 		} );
 	};
 }
