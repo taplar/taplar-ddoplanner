@@ -1,7 +1,7 @@
 <template>
-	<div class="content row position-absolute z-index-100">
-		<disclaimer></disclaimer>
-		<build-container></build-container>
+	<div class="application-content row position-absolute z-index-100">
+		<disclaimer v-if="theDisclaimerShouldBeShown"></disclaimer>
+		<build-container v-if="!theDisclaimerShouldBeShown"></build-container>
 	</div>
 </template>
 
@@ -13,6 +13,11 @@
 		components: {
 			BuildContainer
 			, Disclaimer
+		}
+		, computed: {
+			theDisclaimerShouldBeShown: function () {
+				return this.$store.getters.theDisclaimerShouldBeShown;
+			}
 		}
 	}
 </script>

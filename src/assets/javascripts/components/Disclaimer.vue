@@ -19,7 +19,6 @@
 		methods: {
 			closeTheDisclaimer: function () {
 				this.$store.commit( 'hideTheDisclaimer' );
-				this.$store.commit( 'showTheBuildSteps' );
 			}
 		}
 	}

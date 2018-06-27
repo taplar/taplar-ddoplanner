@@ -1,3 +1,5 @@
+require( './assets/styles/application.less' );
+
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import Application from './assets/javascripts/controllers/Application.vue';
