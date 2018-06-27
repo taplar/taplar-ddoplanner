@@ -4,7 +4,7 @@ import Application from './assets/javascripts/controllers/Application.vue';
 import { dataModel } from './assets/javascripts/models/dataModel.js';
 
 Vue.use( VueResource );
-
+/*
 if ( 'serviceWorker' in navigator ) {
 	window.onload = function () {
 		function ajax ( type, url ) {
@@ -45,3 +45,4 @@ if ( 'serviceWorker' in navigator ) {
 		} );
 	};
 }
+*/

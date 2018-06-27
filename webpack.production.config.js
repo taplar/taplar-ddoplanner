@@ -47,7 +47,11 @@ module.exports = {
 			template: './src/index.html',
 			title: 'Taplar - DDO Planner'
 		} ),
-		new copyPlugin( [ { from: './src/assets/jsons/' }, { from: './src/assets/images/icons/' } ] ),
+		new copyPlugin( [
+			{ from: './src/assets/jsons/', to: './assets/jsons' }
+			, { from: './src/assets/images/icons/', to: './assets/images/icons' }
+			, { from: './src/assets/styles/vendor/font-awesome', to: './assets/styles/vendor/font-awesome' }
+		] ),
 		new workboxPlugin.InjectManifest( {
 			swSrc: './src/sw.js',
 			swDest: 'sw.js'
