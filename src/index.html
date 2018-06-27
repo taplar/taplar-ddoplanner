@@ -28,9 +28,13 @@
 				text-align: center;
 			}
 
-			.firstRender .browser:not(:first-of-type) {
-				margin-left: 12px;
-			}
+			.firstRender.initializing .initializing { display: inherit; }
+			.firstRender.initializingFailure .initializingFailure { display: inherit; }
+			.firstRender.starting .starting { display: inherit; }
+			.firstRender.startingFailure .startingFailure { display: inherit; }
+			.firstRender .browser:not(:first-of-type) { margin-left: 12px; }
+			.firstRender .bootsequence { display: none; }
+			.firstRender .bootsequence.failure { color: rgb(224, 0, 0); }
 
 			@media (min-width: 360px) {
 				.application { display: inherit; }
@@ -49,6 +53,11 @@
 			<noscript>
 				<p>Please enable javascript<br>to use this application</p>
 			</noscript>
+
+			<div class="bootsequence initializing">Initializing Application</div>
+			<div class="bootsequence initializingFailure failure">Unable to Initialize Application</div>
+			<div class="bootsequence starting">Starting Application</div>
+			<div class="bootsequence startingFailure failure">Unable to Start Application</div>
 
 			<p class="minimumWidthInvalid">Minimum display width<br>of 360px desired</p>
 

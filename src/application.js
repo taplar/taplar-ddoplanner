@@ -4,7 +4,7 @@ import Application from './assets/javascripts/controllers/Application.vue';
 import { dataModel } from './assets/javascripts/models/dataModel.js';
 
 Vue.use( VueResource );
-/*
+
 if ( 'serviceWorker' in navigator ) {
 	window.onload = function () {
 		function ajax ( type, url ) {
@@ -26,23 +26,43 @@ if ( 'serviceWorker' in navigator ) {
 			} );
 		}
 
-		navigator.serviceWorker.register( './sw.js' ).then( function serviceWorkerInitialized () {
-			ajax( 'GET', 'api/initialize' ).then(
-				function () {
-					new Vue( {
-						el: document.getElementById( 'application' )
-						, components: { Application }
-						, render: function ( h ) {
-							return h( 'application' );
+		let firstRender = document.querySelector( '.firstRender' );
+		let startupCount = 0;
+		
+		firstRender.classList.add( 'initializing' );
+
+		navigator.serviceWorker.register( './sw.js' ).then(
+			function serviceWorkerInitialized () {
+				firstRender.classList.add( 'starting' );
+
+				ajax( 'GET', 'api/initialize' ).then(
+					function () {
+						firstRender.classList.remove( 'initializing' );
+						firstRender.classList.remove( 'starting' );
+
+						new Vue( {
+							el: document.getElementById( 'application' )
+							, components: { Application }
+							, render: function ( h ) {
+								return h( 'application' );
+							}
+							, store: dataModel
+						} );
+					}
+					, function () {
+						if ( startupCount++ < 10 ) {
+							setTimeout( serviceWorkerInitialized, 100 * startupCount );
+						} else {
+							firstRender.classList.remove( 'starting' );
+							firstRender.classList.add( 'startingFailure' );
 						}
-						, store: dataModel
-					} );
-				}
-				, function () {
-					setTimeout( serviceWorkerInitialized, 100 );
-				}
-			);
-		} );
+					}
+				);
+			}
+			, function () {
+				firstRender.classList.remove( 'initializing' );
+				firstRender.classList.add( 'initializingFailure' );
+			}
+		);
 	};
 }
-*/
