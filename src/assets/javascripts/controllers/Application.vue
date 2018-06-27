@@ -34,11 +34,6 @@
 	}
 </script>
 
-<style>
-	@import '../../styles/vendor/bootstrap/bootstrap.css';
-	@import '../../styles/vendor/font-awesome/4.7.0/css/font-awesome.min.css';
-</style>
-
 <style lang="less">
 	//COLORS
 	@color-dark-gray-0: rgb(40, 40, 40);

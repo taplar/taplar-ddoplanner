@@ -50,7 +50,7 @@ module.exports = {
 		new copyPlugin( [
 			{ from: './src/assets/jsons/', to: './assets/jsons' }
 			, { from: './src/assets/images/icons/', to: './assets/images/icons' }
-			, { from: './src/assets/styles/vendor/font-awesome', to: './assets/styles/vendor/font-awesome' }
+			, { from: './src/assets/styles/vendor', to: './assets/styles/vendor' }
 		] ),
 		new workboxPlugin.InjectManifest( {
 			swSrc: './src/sw.js',
