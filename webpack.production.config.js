@@ -45,7 +45,7 @@ module.exports = {
 		new cleanPlugin( [ 'dist' ] ),
 		new htmlPlugin( {
 			template: './src/index.html',
-			title: 'Taplar - DDO Planner'
+			title: 'Taplar - D.D.O Planner'
 		} ),
 		new copyPlugin( [
 			{ from: './src/assets/jsons/', to: './assets/jsons' }
