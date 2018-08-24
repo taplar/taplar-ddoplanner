@@ -36,22 +36,20 @@ if ( 'serviceWorker' in navigator ) {
 		let firstRender = document.querySelector( '.firstRender section' );
 		let initializing = firstRender.querySelector( '.initializing' );
 		let initializingFailure = firstRender.querySelector( '.initializingFailure' );
-		let starting = firstRender.querySelector( '.starting' );
-		let startingFailure = firstRender.querySelector( '.startingFailure' );
+		let startButton = firstRender.querySelector( '.startButton' );
 		let startupCount = 0;
+
+		startButton.addEventListener( 'click', function () {
+			document.querySelector( '.application' ).classList.add( 'started' );
+		} );
 
 		showTheElement( initializing, true );
 
 		navigator.serviceWorker.register( './sw.js' ).then(
 			function serviceWorkerInitialized () {
-				showTheElement( starting, true );
-
 				setTimeout( function () {
 					ajax( 'GET', './api/initialize' ).then(
 						function () {
-							showTheElement( initializing, false );
-							showTheElement( starting, false );
-
 							new Vue( {
 								el: document.getElementById( 'application' )
 								, components: { Application }
@@ -60,20 +58,20 @@ if ( 'serviceWorker' in navigator ) {
 								}
 								, store: dataModel
 							} );
+
+							showTheElement( startButton, true );
 						}
 						, function () {
 							if ( startupCount < 10 ) {
 								serviceWorkerInitialized();
 							} else {
-								showTheElement( starting, false );
-								showTheElement( startingFailure, true );
+								showTheElement( initializingFailure, true );
 							}
 						}
 					);
 				}, 100 * ++startupCount );
 			}
 			, function () {
-				showTheElement( initializing, false );
 				showTheElement( initializingFailure, true );
 			}
 		);

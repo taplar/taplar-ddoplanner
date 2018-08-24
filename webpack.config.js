@@ -40,7 +40,7 @@ module.exports = {
 		new cleanPlugin( [ 'dist' ] ),
 		new htmlPlugin( {
 			template: './src/index.html',
-			title: 'Taplar - D.D.O Planner'
+			title: 'Taplar - DDO Planner'
 		} ),
 		new copyPlugin( [
 			{ from: './src/assets/jsons/', to: './assets/jsons' }
