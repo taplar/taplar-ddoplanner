@@ -1,5 +1,5 @@
 <template>
-	<div class="application container-fluid position-relative z-index-0">
+	<div class="application container-fluid display-none position-relative z-index-0">
 		<application-header></application-header>
 		<application-content></application-content>
 	</div>

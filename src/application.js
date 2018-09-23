@@ -29,7 +29,12 @@ if ( 'serviceWorker' in navigator ) {
 		}
 
 		function showTheElement ( element, showTheElement ) {
-			element.style.display = showTheElement ? 'inherit' : '';
+			if ( showTheElement ) {
+				element.classList.remove( 'display-none' );
+			} else {
+				element.classList.add( 'display-none' );
+			}
+
 			element.setAttribute( 'aria-hidden', !showTheElement );
 		}
 
@@ -39,41 +44,45 @@ if ( 'serviceWorker' in navigator ) {
 		let startButton = firstRender.querySelector( '.startButton' );
 		let startupCount = 0;
 
-		startButton.addEventListener( 'click', function () {
-			document.querySelector( '.application' ).classList.add( 'started' );
-		} );
+		// startButton.addEventListener( 'click', function () {
+		// 	document.querySelector( '.application' ).classList.add( 'started' );
+		// } );
 
 		showTheElement( initializing, true );
 
-		navigator.serviceWorker.register( './sw.js' ).then(
-			function serviceWorkerInitialized () {
-				setTimeout( function () {
-					ajax( 'GET', './api/initialize' ).then(
-						function () {
-							new Vue( {
-								el: document.getElementById( 'application' )
-								, components: { Application }
-								, render: function ( h ) {
-									return h( 'application' );
-								}
-								, store: dataModel
-							} );
+		if ( navigator.serviceWorker ) {
+			navigator.serviceWorker.register( './sw.js' ).then(
+				function serviceWorkerInitialized () {
+					setTimeout( function () {
+						ajax( 'GET', './api/initialize' ).then(
+							function () {
+								new Vue( {
+									el: document.getElementById( 'application' )
+									, components: { Application }
+									, render: function ( h ) {
+										return h( 'application' );
+									}
+									, store: dataModel
+								} );
 
-							showTheElement( startButton, true );
-						}
-						, function () {
-							if ( startupCount < 10 ) {
-								serviceWorkerInitialized();
-							} else {
-								showTheElement( initializingFailure, true );
+								showTheElement( startButton, true );
 							}
-						}
-					);
-				}, 100 * ++startupCount );
-			}
-			, function () {
-				showTheElement( initializingFailure, true );
-			}
-		);
+							, function () {
+								if ( startupCount < 10 ) {
+									serviceWorkerInitialized();
+								} else {
+									showTheElement( initializingFailure, true );
+								}
+							}
+						);
+					}, 100 * ++startupCount );
+				}
+				, function () {
+					showTheElement( initializingFailure, true );
+				}
+			);
+		} else {
+			showTheElement( initializingFailure, true );
+		}
 	};
 }
