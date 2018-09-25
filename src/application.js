@@ -44,9 +44,10 @@ if ( 'serviceWorker' in navigator ) {
 		let startButton = firstRender.querySelector( '.startButton' );
 		let startupCount = 0;
 
-		// startButton.addEventListener( 'click', function () {
-		// 	document.querySelector( '.application' ).classList.add( 'started' );
-		// } );
+		startButton.addEventListener( 'click', function () {
+			showTheElement( document.querySelector( '.firstRender' ), false );
+			showTheElement( document.querySelector( '.application' ), true );
+		} );
 
 		showTheElement( initializing, true );
 
@@ -57,7 +58,7 @@ if ( 'serviceWorker' in navigator ) {
 						ajax( 'GET', './api/initialize' ).then(
 							function () {
 								new Vue( {
-									el: document.getElementById( 'application' )
+									el: document.querySelector( '#application' )
 									, components: { Application }
 									, render: function ( h ) {
 										return h( 'application' );

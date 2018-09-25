@@ -1,8 +1,8 @@
 <template>
-	<div class="application container-fluid display-none position-relative z-index-0">
+	<section class="application display-none">
 		<application-header></application-header>
 		<application-content></application-content>
-	</div>
+	</section>
 </template>
 
 <script>

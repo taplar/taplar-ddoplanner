@@ -1,9 +1,9 @@
 <template>
-	<div class="application-header container-fluid position-fixed z-index-200">
-		<div class="row">
-			<h3 class="title col-xs-12 center font-size-5 no-margin">DDO Planner</h3>
+	<nav class="application-header background-color-dark-gray-0 font-color-white layout-container line-height-3-5 position-fixed" aria-hidden="true">
+		<div class="layout-row">
+			<h3 class="title font-size-5 layout-col-12 text-center">DDO Planner</h3>
 		</div>
-	</div>
+	</nav>
 </template>
 
 <script>
