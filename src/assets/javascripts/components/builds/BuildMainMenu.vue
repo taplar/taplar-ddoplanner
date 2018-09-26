@@ -5,7 +5,7 @@
 		</label>
 
 		<label class="edit-existing-build font-color-white layout-col-6 text-center">
-			<i class="display-block font-size-5 icon-user-plus"></i>Edit An Existing Build
+			<i class="display-block font-size-5 icon-user"></i>Edit An Existing Build
 		</label>
 	</section>
 </template>

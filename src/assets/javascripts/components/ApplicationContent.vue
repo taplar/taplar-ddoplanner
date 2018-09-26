@@ -1,7 +1,7 @@
 <template>
 	<section class="application-content center layout-container-margin position-absolute">
 		<disclaimer v-if="theDisclaimerShouldBeShown"></disclaimer>
-		<!-- <build-container v-if="!theDisclaimerShouldBeShown"></build-container> -->
+		<build-container v-if="!theDisclaimerShouldBeShown"></build-container>
 	</section>
 </template>
 
