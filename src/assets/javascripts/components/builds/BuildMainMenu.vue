@@ -1,9 +1,13 @@
 <template>
-	<div class="build-main-menu">
-		<div class="row">
-			<label class="start-new-build col-xs-12">Create A New Build</label>
-		</div>
-	</div>
+	<section class="build-main-menu layout-row">
+		<label class="create-new-build font-color-white layout-col-6 text-center">
+			<i class="display-block font-size-5 icon-user-plus"></i>Create A New Build
+		</label>
+
+		<label class="edit-existing-build font-color-white layout-col-6 text-center">
+			<i class="display-block font-size-5 icon-user-plus"></i>Edit An Existing Build
+		</label>
+	</section>
 </template>
 
 <script>

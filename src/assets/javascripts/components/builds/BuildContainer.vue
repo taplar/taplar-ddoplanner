@@ -1,7 +1,7 @@
 <template>
-	<div class="build-container">
+	<section class="build-container layout-row">
 		<build-main-menu v-show="showTheBuildMainMenu"></build-main-menu>
-	</div>
+	</section>
 </template>
 
 <script>

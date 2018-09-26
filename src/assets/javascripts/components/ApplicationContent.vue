@@ -6,13 +6,13 @@
 </template>
 
 <script>
-	//import BuildContainer from './builds/BuildContainer.vue';
+	import BuildContainer from './builds/BuildContainer.vue';
 	import Disclaimer from './Disclaimer.vue';
 
 	export default {
 		components: {
-			//BuildContainer
-			Disclaimer
+			BuildContainer
+			, Disclaimer
 		}
 		, computed: {
 			theDisclaimerShouldBeShown: function () {
