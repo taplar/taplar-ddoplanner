@@ -1,12 +1,14 @@
 <template>
 	<section class="build-main-menu layout-row">
-		<label class="create-new-build font-color-white layout-col-6 text-center">
-			<i class="display-block font-size-5 icon-user-plus"></i>Create A New Build
-		</label>
+		<div class="layout-col-xs-12 font-color-white">
+			<i class="create-new-build icon-user-plus font-size-xs-xl" id="createNewBuild"></i>
+			<label for="createNewBuild" class="font-size-xs-md">Create A New Build</label>
+		</div>
 
-		<label class="edit-existing-build font-color-white layout-col-6 text-center">
-			<i class="display-block font-size-5 icon-user"></i>Edit An Existing Build
-		</label>
+		<div class="layout-col-xs-12 font-color-white">
+			<i class="edit-existing-build icon-user font-size-xs-xl" id="editExistingBuild"></i>
+			<label for="editExistingBuild" class="font-size-xs-md">Edit An Existing Build</label>
+		</div>
 	</section>
 </template>
 

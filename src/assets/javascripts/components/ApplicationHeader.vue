@@ -1,8 +1,6 @@
 <template>
 	<nav class="application-header background-color-dark-gray-0 font-color-white layout-container line-height-3-5 position-fixed" aria-hidden="true">
-		<div class="layout-row">
-			<h3 class="title font-size-5 layout-col-12 text-center">DDO Planner</h3>
-		</div>
+		<h3 class="title layout-row text-center"><span class="display-block font-size-5">DDO Planner</span></h3>
 	</nav>
 </template>
 

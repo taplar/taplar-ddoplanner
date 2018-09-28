@@ -1,8 +1,8 @@
 <template>
-	<section class="disclaimer background-color-dark-gray-1 border border-color-dark-gray-2 border-radius-4 border-width-2 font-color-gray-0 font-size-3 layout-row">
-		<div class="padding-4">
+	<section class="disclaimer background-color-dark-gray-1 border border-color-dark-gray-2 border-radius-4 border-width-2 font-color-gray-0 layout-row">
+		<div class="font-size-4 padding-4">
 			<p class="no-margin">
-				<em class="font-color-yellow font-style-normal">DDO Planner</em> is a fan site for the <a href="http://www.ddo.com/" target="_new" class="external-link">MMORPG Dungeons &amp; Dragons Online</a>.
+				<em class="font-color-yellow font-style-normal">DDO Planner</em> is a fan site for the <a href="http://www.ddo.com/" target="_new" class="external-link no-wrap">MMORPG Dungeons &amp; Dragons Online</a>.
 			</p>
 
 			<p>
