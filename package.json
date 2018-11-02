@@ -34,7 +34,8 @@
 		"build-watch": "webpack --watch",
 		"help": "webpack help",
 		"server": "serve -p 8443 dist/",
-		"update": "npm install -g npm@latest && npm update"
+		"update": "npm install -g npm@latest && npm update",
+		"updateAtWork": "npm config set strict-ssl false && npm run-script update && npm config set strict-ssl true"
 	},
 	"version": "1.0.0"
 }
